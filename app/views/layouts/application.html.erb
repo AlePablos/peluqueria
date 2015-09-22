@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peluqueria</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,900' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="flag">
+      <a href="/"><%= image_tag 'hair-salon.png' %></a>
+    </div>
+
+    <header class="top-menu">
+      <ul class="top-menu-main">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+
+      <ul class="top-menu-user">
+        <% if current_user.nil? %>
+          <li><%= link_to 'Iniciar Sesión', login_path %></li>
+          <li><%= link_to 'Registrarse', signup_path %></li>
+        <% else %>
+          <li>Bienvenido, <%= link_to current_user.first_name, current_user %>!</li>
+          <li><%= link_to 'Salir', logout_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </header>
+
+    <%= yield %>
+
+  </body>
+</html>

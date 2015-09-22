@@ -1,0 +1,13 @@
+<div class="page centered-form">
+  <h1>Iniciar Sesión</h1>
+
+  <%= form_for(:session, url: login_path) do |f|%>
+    <label>Email</label>
+		<%= f.email_field :email, :placeholder => "Email" %>
+
+    <label>Contraseña</label>
+		<%= f.password_field :password, :placeholder => "Contraseña" %>
+
+		<%= f.submit "Iniciar Sesión", class: "btn-submit" %>
+  <% end %>
+</div>

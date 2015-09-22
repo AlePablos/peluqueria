@@ -1,0 +1,50 @@
+.banner {
+  background-image: asset-url('banner.jpg');
+  background-position: cover;
+  background-position: 50% 50%;
+  height: 90vh;
+
+  h2 {
+    padding-top: 20%;
+    margin: 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 3em;
+    opacity: 0.85;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.75);
+  }
+
+  h3{
+    margin-top: 7em;
+    padding: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3em;
+    opacity: 0.85;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.75);
+
+    a{
+      text-decoration: none;
+      color: #f1f1f1;
+      opacity: 0.85;
+
+      &:hover {
+        //opacity: 0.2;
+        color: #858585;
+        transition: opacity 0.2s;
+      }
+    }
+  }
+}
+
+p{
+  a{
+    text-decoration: none;
+    color: #222;
+
+    &:hover {
+      color: #858585;
+      transition: opacity 0.2s;
+    }
+  }
+}

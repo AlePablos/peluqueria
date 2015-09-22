@@ -1,0 +1,62 @@
+body {
+  background-color: #111;
+  color: #f1f1f1;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.top-menu {
+  text-transform: uppercase;
+  font-weight: 100;
+  display: flex;
+  box-sizing: border-box;
+  height: 10vh;
+
+  .top-menu-main {
+    flex-grow: 1;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    padding: 1.2em 1em;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.2;
+      transition: opacity 0.2s;
+    }
+  }
+}
+
+.flag {
+  position: absolute;
+  top: 0;
+  left: 42%;
+  text-align: center;
+  z-index: 500;
+}
+
+.page {
+  background-color: white;
+  max-width: 968px;
+  padding: 4em 2em 2em;
+  margin: 0 auto;
+  color: #222;
+
+  h1 {
+    margin: 0 0 .75em;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+}

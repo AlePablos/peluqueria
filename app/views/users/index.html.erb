@@ -1,0 +1,6 @@
+<div class="page">
+  <% @user.each do |u| %>
+    <h3><%= u.id.to_s + " " + u.first_name + " " + u.last_name + " " + u.phone + " " + u.sex + " " + u.email %></h3>
+  <% end %>
+
+</div>

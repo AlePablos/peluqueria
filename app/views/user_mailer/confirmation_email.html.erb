@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bienvenido a Tully's Stilo, <%= @user.first_name %> donde podras disfrutar de los mejores cortes y peinados</h1>
+    <p>
+      Te has registrado correctamente pero solo falta un solo paso, para eso, clickea el link que te damos y tu confirmacion se completara correctamente <%= @user.first_name %>!
+    </p>
+    <p>
+      Para confirmar tu cuenta, clickea aquí: <%= users_validate_url id: @user.id, confirmation_secret: @user.confirmation_secret %>.
+    </p>
+    <p>Gracias por unirtenos y que tengas un exelente dia! :)</p>
+  </body>
+</html>

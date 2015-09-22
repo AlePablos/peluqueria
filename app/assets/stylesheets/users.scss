@@ -1,0 +1,29 @@
+.centered-form {
+  text-align: center;
+  padding-bottom: 3em;
+
+  h1 {
+    margin-top: 2em;
+  }
+
+  label {
+    display: block;
+    padding: 0.2em 0;
+    text-align: left;
+    width: 300px;
+    margin: auto;
+  }
+
+  input {
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    width: 300px;
+    padding: 0.25em;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  input[type=submit] {
+    display: block;
+    margin: auto;
+  }
+}

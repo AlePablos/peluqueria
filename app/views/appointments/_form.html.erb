@@ -1,0 +1,30 @@
+<%= form_for(@appointment) do |f| %>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% @appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <% f.fields_for :work_items do |builder| %>
+    <div class="field">
+      <%= builder.label :name %>
+      <%= builder.text_field :name %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit %>
+  </div>
+<% end %>
