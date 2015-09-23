@@ -70,6 +70,10 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:start_time, :user_id)
+      params.require(:appointment).permit(:start_time, :user_id).merge(work_items: work_items)
+    end
+
+    def work_items
+      WorkItem.find(params[:work_item_id])
     end
 end

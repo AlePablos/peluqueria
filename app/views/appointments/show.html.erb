@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @appointment.start_time %>
-</p>
+  <p>
+    <strong>Turno Para</strong>
+    <%= @appointment.start_time %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @appointment.user_id %>
-</p>
+  <p>
+    <strong>Cliente</strong>
+    <%= @appointment.user.full_name %>
+  </p>
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+  <p>
+    <strong>Servicios</strong>
+    <% @appointment.work_items.each do |work_item| %>
+      <%= render 'work_item', work_item: work_item %>
+    <% end %>
+  </p>
+
+  <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+  <%= link_to 'Back', appointments_path %>
+</div>

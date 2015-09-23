@@ -8,3 +8,7 @@
 
 # Create administrator user
 User.create first_name: "Alejandro", last_name: "Pablos", phone: "291-123123", sex: :male, email: "alepablos@gmail.com", password: "root", profile: :admin
+
+# Work Items
+WorkItem.create name: 'Corte', duration: 30, price: 50.25
+WorkItem.create name: 'Pelusa', duration: 20, price: 70.50

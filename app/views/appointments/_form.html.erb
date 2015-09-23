@@ -16,12 +16,14 @@
     <%= f.datetime_select :start_time %>
   </div>
 
-  <% f.fields_for :work_items do |builder| %>
-    <div class="field">
-      <%= builder.label :name %>
-      <%= builder.text_field :name %>
-    </div>
-  <% end %>
+  <div class="field work-item-fields">
+    <% WorkItem.all.each do |work_item| %>
+      <div>
+        <input value="<%= work_item.id %>" <%= 'checked' if @appointment.work_items.include?(work_item) %> id="work_item_<%= work_item.id %>" name="work_item_id[]" type="checkbox">
+        <label for="work_item_<%= work_item.id %>"> <%= work_item.name %></label>
+      </div>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.hidden_field :user_id, value: current_user.id %>

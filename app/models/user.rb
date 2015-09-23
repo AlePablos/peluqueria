@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-
-  belongs_to :profile
+  has_many :appointments
   has_secure_password
 
   enum sex: [:female, :male]
@@ -12,4 +11,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: {message: "Este mail ya esta siendo usado o el formato es erroneo"}
   validates :password_digest, presence: {message: "La contraseña es obligatoria"}
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
