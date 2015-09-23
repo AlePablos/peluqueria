@@ -1,8 +1,7 @@
 <div class="page">
-  <h1>Panel de Control</h1>
-  <ul>
-    <li>
-      <%= link_to 'Gestionar Items de Trabajo', work_items_path %>
-    </li>
-  </ul>
+  <% if current_user.admin? %>
+    <%= render 'admin_panel' %>
+  <% else %>
+    <%= render 'user_panel' %>
+  <% end %>
 </div>

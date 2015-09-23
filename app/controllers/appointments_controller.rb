@@ -74,6 +74,7 @@ class AppointmentsController < ApplicationController
     end
 
     def work_items
+      return [] unless params[:work_item_id]
       WorkItem.find(params[:work_item_id])
     end
 end
