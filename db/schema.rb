@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923192447) do
+ActiveRecord::Schema.define(version: 20150924162708) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "start_time"
@@ -27,35 +27,6 @@ ActiveRecord::Schema.define(version: 20150923192447) do
   end
 
   add_index "appointments_work_items", ["work_item_id", "appointment_id"], name: "appointment_work_items_index", unique: true
-
-  create_table "cortes", force: :cascade do |t|
-    t.string   "tipo_corte"
-    t.integer  "duracion"
-    t.integer  "precio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "discounts", force: :cascade do |t|
-    t.string   "description"
-    t.string   "porcent"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "reservas", force: :cascade do |t|
-    t.datetime "dia"
-    t.integer  "users_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tienes", force: :cascade do |t|
-    t.integer  "reservas_id"
-    t.integer  "cortes_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
