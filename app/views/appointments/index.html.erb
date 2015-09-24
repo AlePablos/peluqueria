@@ -10,7 +10,7 @@
 
     <% appointments.each do |appointment| %>
       <div>
-        <%= link_to appointment.user.full_name, appointment %>
+        <%= link_to appointment_summary(appointment), appointment %>
       </div>
     <% end %>
   <% end %>

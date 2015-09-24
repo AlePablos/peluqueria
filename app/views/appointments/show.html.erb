@@ -3,7 +3,7 @@
 
   <p>
     <strong>Turno</strong>
-    De <%= @appointment.start_time %> A <%= @appointment.end_time %>
+    <%= appointment_format_time(@appointment.start_time) %> - <%= appointment_format_time(@appointment.end_time) %>
   </p>
 
   <p>
@@ -11,12 +11,10 @@
     <%= @appointment.user.full_name %>
   </p>
 
-  <p>
-    <strong>Servicios</strong>
-    <% @appointment.work_items.each do |work_item| %>
-      <%= render 'work_item', work_item: work_item %>
-    <% end %>
-  </p>
+  <h2>Servicios</h2>
+  <% @appointment.work_items.each do |work_item| %>
+    <%= render 'work_item', work_item: work_item %>
+  <% end %>
 
   <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
   <%= link_to 'Back', appointments_path %>
