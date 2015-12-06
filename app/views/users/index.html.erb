@@ -1,6 +1,27 @@
 <div class="page">
-  <% @user.each do |u| %>
-    <h3><%= u.id.to_s + " " + u.first_name + " " + u.last_name + " " + u.phone + " " + u.sex + " " + u.email %></h3>
-  <% end %>
-
+  <table style="margin-top: 2em;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Telefono</th>
+        <th>Email</th>
+        <th>Ultimo Acceso</th>
+        <th></th>
+    <tbody>
+      <% @user.each do |u| %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.first_name %></td>
+        <td><%= u.phone %></td>
+        <td><%= u.email %></td>
+        <td><%= u.last_logged || "Nunca" %></td>
+        <td>
+          <%= link_to "Eliminar", u, method: :delete %> -
+          <%= link_to "Resetear Contraseña", u, method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

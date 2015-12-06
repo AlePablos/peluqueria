@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.all
+    @user = User.user
   end
 
   def validate
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(paramas[:id])
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
     else
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(paramas[:id])
+    @user = User.find(params[:id])
     @user.destroy
     redirect_to root_url
   end
