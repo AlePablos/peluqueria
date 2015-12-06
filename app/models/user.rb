@@ -11,7 +11,21 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: {message: "Este mail ya esta siendo usado o el formato es erroneo"}
   validates :password_digest, presence: {message: "La contraseña es obligatoria"}
 
+  before_save :ensure_has_logged_time
+
+  def ensure_has_logged_time
+    self.last_logged ||= DateTime.now
+  end
+
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def reset_pass
+    update_attributes(password: "1234")
+  end
+
+  def self.clean
+    User.where("last_logged < ?", DateTime.now - 1.year).destroy_all
   end
 end

@@ -18,10 +18,12 @@
         <td><%= u.last_logged || "Nunca" %></td>
         <td>
           <%= link_to "Eliminar", u, method: :delete %> -
-          <%= link_to "Resetear Contraseña", u, method: :delete %>
+          <%= link_to "Resetear Contraseña", reset_pass_user_path(u) %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= link_to "Limpiar Usuarios", clean_users_path %>
 </div>

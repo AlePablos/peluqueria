@@ -15,7 +15,15 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    collection do
+      get 'clean', to: 'users#clean', as: 'clean'
+    end
+
+    member do
+      get 'reset_pass', to: 'users#reset_pass', as: 'reset_pass'
+    end
+  end
   get '/users/validate/:id/:confirmation_secret', to: 'users#validate', as: 'users_validate'
 
   get 'confirmation' => 'users#confirmation' #Muestra la pagina que dice que tenes que confirmar la cuenta
