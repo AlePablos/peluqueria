@@ -1,0 +1,16 @@
+<p>
+  <strong>Turno</strong>
+  <%= appointment_format_time(appointment.start_time) %> - <%= appointment_format_time(appointment.end_time) %>
+</p>
+
+<% if current_user.admin? %>
+  <p>
+    <strong>Cliente</strong>
+    <%= appointment.user.full_name %>
+  </p>
+<% end %>
+
+<h3>Servicios</h3>
+<% appointment.work_items.each do |work_item| %>
+  <%= render 'shared/work_item', work_item: work_item %>
+<% end %>

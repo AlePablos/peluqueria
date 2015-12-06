@@ -7,6 +7,10 @@ class Appointment < ActiveRecord::Base
 
   validates :work_items, presence: {message: "Elija uno o más servicios."}
 
+  def self.todays_appointments
+    where(start_time: DateTime.now.to_date..(DateTime.now.to_date + 23.hours + 59.minutes + 59.seconds))
+  end
+
   private
 
   def set_end_time

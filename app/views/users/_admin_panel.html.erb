@@ -10,3 +10,10 @@
     <%= link_to 'Sacar Turno', new_appointment_path %>
   </li>
 </ul>
+
+<h2>Cosas para hoy</h2>
+
+<% Appointment.todays_appointments.each do |appointment| %>
+  <%= render 'shared/appointment', appointment: appointment %>
+  <hr>
+<% end %>
