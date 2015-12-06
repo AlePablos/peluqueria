@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def reset_pass
     @user.reset_pass
+    flash[:notice] = "La contraseña se ha reseteado."
     redirect_to users_url
   end
 
