@@ -6,10 +6,12 @@
     <%= appointment_format_time(@appointment.start_time) %> - <%= appointment_format_time(@appointment.end_time) %>
   </p>
 
-  <p>
-    <strong>Cliente</strong>
-    <%= @appointment.user.full_name %>
-  </p>
+  <% if current_user.admin? %>
+    <p>
+      <strong>Cliente</strong>
+      <%= @appointment.user.full_name %>
+    </p>
+  <% end %>
 
   <h2>Servicios</h2>
   <% @appointment.work_items.each do |work_item| %>
