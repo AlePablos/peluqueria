@@ -4,6 +4,7 @@ class Appointment < ActiveRecord::Base
 
   before_save :set_end_time
   before_save :ensure_not_overlapping
+  before_save :ensure_valid_hours
 
   validates :work_items, presence: {message: "Elija uno o más servicios."}
 
@@ -23,6 +24,15 @@ class Appointment < ActiveRecord::Base
       false
     else
       true
+    end
+  end
+
+  def ensure_valid_hours
+    if (start_time.hour > 8 && end_time.hour < 20 && !start_time.monday? && !start_time.sunday?)
+      true
+    else
+      errors[:base] << 'No es horario de atención.'
+      false
     end
   end
 end
